@@ -1,0 +1,23 @@
+{
+  "evaluation_protocol": "Chronological holdout: final 28 calendar days; daily rolling one-step predictions",
+  "holdout_start": "2026-09-03",
+  "holdout_end": "2026-09-30",
+  "train_rows": 24720,
+  "test_rows": 2240,
+  "city_service_series": 80,
+  "random_forest": {
+    "MAPE_percent": 3.6909519857199626,
+    "MAPE_nonzero_actual_count": 2240,
+    "MAE": 14.153348266494582,
+    "RMSE": 20.520510585034195
+  },
+  "seasonal_naive_lag_7": {
+    "MAPE_percent": 10.61794094302402,
+    "MAPE_nonzero_actual_count": 2240,
+    "MAE": 34.81071428571428,
+    "RMSE": 64.53782805456038
+  },
+  "MAPE_target_percent": 12.0,
+  "random_forest_meets_MAPE_target": true,
+  "weather_feature_caveat": "Evaluation uses recorded weather values for holdout dates. Production forecasts require weather forecasts or a weather-free fallback."
+}
