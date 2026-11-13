@@ -1,0 +1,21 @@
+experiment_name: UrbanClap-Demand-Forecasting
+lookback_days: 28
+forecast_horizon_days: 28
+holdout_days: 28
+training_epochs: 12
+window_stride_days: 3
+experiments:
+  - name: LSTM_A
+    hidden_size: 32
+    num_layers: 1
+    dropout: 0.0
+    learning_rate: 0.001
+    batch_size: 512
+  - name: LSTM_B
+    hidden_size: 48
+    num_layers: 2
+    dropout: 0.2
+    learning_rate: 0.0005
+ensemble:
+  seasonal_naive_weight: 0.8
+  lstm_weight: 0.2
