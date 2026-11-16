@@ -51,7 +51,7 @@ Successful response contains the city, service type, a seven-day horizon, genera
 
 Automated integration tests are included in `tests/test_api.py` for readiness, catalogue retrieval, seven-day response shape, missing parameters and unknown cities. The 50-worker load-test runner is included in `scripts/load_test.py`; it records latency percentiles, throughput, errors and request counts.
 
-**Execution status in the preparation environment:** the LSTM training and chronological holdout evaluation were executed successfully. Flask was not installed in the preparation runtime and package installation was unavailable, so the Flask integration tests and live HTTP load test could not be executed here. Consequently, no latency or throughput values are claimed in this report. Run the commands in the README in an environment with `requirements.txt` installed, then attach the generated `reports/load_test_results.json` and pytest output before marking those checks as executed.
+**Execution status at package preparation:** the LSTM training and chronological holdout evaluation were executed successfully. The preparation runtime did not have Flask installed, and the package index was unreachable, so the Flask integration tests and live HTTP load test could not be executed in this environment. No latency or throughput values are fabricated or claimed. The project now includes `scripts/run_week9_validation.py`, a one-command validation runner. On the machine where dependencies are installed, run it successfully and attach the generated `reports/load_test_results.md`, `reports/load_test_results.json`, and pytest output. Only then mark the live integration/load tests as executed.
 
 ## 7. Monitoring and retraining
 
@@ -68,6 +68,7 @@ The historical dataset includes weather observations, but it does not provide fu
 - Saved trained model: `artifacts/demand_lstm.pt`
 - API integration tests: `tests/test_api.py`
 - 50-concurrency load test: `scripts/load_test.py`
+- One-command validation runner: `scripts/run_week9_validation.py`
 - Drift monitoring: `src/drift_monitor.py`
 - Weekly retraining example: `scripts/weekly_retrain.*`
 - Setup and execution instructions: `README.md`

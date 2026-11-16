@@ -1,0 +1,4 @@
+Status: TESTS IMPLEMENTED; NOT EXECUTED in the package-preparation runtime.
+Reason: Flask is not installed in this runtime.
+Run on your computer after installing requirements: python scripts/run_week9_validation.py
+The runner executes pytest before starting the HTTP load test.

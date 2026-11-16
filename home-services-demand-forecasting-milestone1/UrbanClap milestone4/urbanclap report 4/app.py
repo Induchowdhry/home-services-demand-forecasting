@@ -1,5 +1,6 @@
 """Flask REST API: GET /health, GET /cities, POST /forecast."""
 from pathlib import Path
+from threading import Lock
 import pandas as pd
 import torch
 from flask import Flask, jsonify, request
@@ -10,17 +11,20 @@ DATA_PATH=ROOT/'data/processed_daily_bookings.csv'
 ARTIFACT_PATH=ROOT/'artifacts/demand_lstm.pt'
 app=Flask(__name__)
 _model=None; _artifact=None; _data=None
+_runtime_lock = Lock()
 
 def load_runtime():
     global _model,_artifact,_data
-    if _model is None:
-        if not ARTIFACT_PATH.exists(): raise FileNotFoundError('Model artifact missing. Run python src/train.py first.')
-        _artifact=torch.load(ARTIFACT_PATH,map_location='cpu',weights_only=False)
-        _model=DemandLSTM(hidden_size=_artifact['hidden_size'],num_layers=_artifact['num_layers'],dropout=_artifact['dropout'])
-        _model.load_state_dict(_artifact['state_dict']); _model.eval()
-    if _data is None:
-        _data=pd.read_csv(DATA_PATH,parse_dates=['booking_date'])
-    return _model,_artifact,_data
+    # Guard first-load initialization so simultaneous requests do not race to load the artifact/data.
+    with _runtime_lock:
+        if _model is None:
+            if not ARTIFACT_PATH.exists(): raise FileNotFoundError('Model artifact missing. Run python src/train.py first.')
+            _artifact=torch.load(ARTIFACT_PATH,map_location='cpu',weights_only=False)
+            _model=DemandLSTM(hidden_size=_artifact['hidden_size'],num_layers=_artifact['num_layers'],dropout=_artifact['dropout'])
+            _model.load_state_dict(_artifact['state_dict']); _model.eval()
+        if _data is None:
+            _data=pd.read_csv(DATA_PATH,parse_dates=['booking_date'])
+        return _model,_artifact,_data
 
 def predict_series(model,artifact,history,start_date,days=7):
     hist=list(map(float,history)); rows=[]
