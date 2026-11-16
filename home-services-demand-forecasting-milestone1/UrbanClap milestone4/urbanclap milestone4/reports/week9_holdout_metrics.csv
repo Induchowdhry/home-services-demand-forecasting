@@ -1,2 +1,0 @@
-model,holdout_days,holdout_rows,city_service_series,MAPE_percent,MAE,RMSE,epochs,training_examples,device,acceptance_target_MAPE_percent,acceptance_target_met
-Global LSTM,28,2240,80,11.201303463620942,36.67456233733625,60.61791656022511,4,24720,cpu,12.0,True
