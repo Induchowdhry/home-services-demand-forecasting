@@ -1,0 +1,4 @@
+Status: NOT EXECUTED in the preparation runtime.
+Reason: Flask is not installed in the runtime and package installation could not access the package index.
+How to execute: start `python app.py`, then run `python scripts/load_test.py --concurrency 50 --requests 200` from a second terminal after installing requirements.txt.
+Do not submit estimated latency or throughput as measured results.
