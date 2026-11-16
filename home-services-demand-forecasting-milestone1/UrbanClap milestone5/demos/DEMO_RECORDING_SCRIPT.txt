@@ -1,0 +1,42 @@
+URBANCLAP WEEK 12 — 5-MINUTE DEMO RECORDING SCRIPT
+
+Important: This is a narration and screen-recording plan, not a recorded video.
+Record your own screen, use real outputs, and save the finished MP4 in this folder.
+
+0:00–0:30 | Introduction
+Show the GitHub repository and project folders.
+Say: "This project forecasts home-services booking demand by city and service type.
+It uses a PyTorch LSTM model, a Flask API, data preprocessing and model-monitoring
+components."
+
+0:30–1:20 | Data and preprocessing
+Show the source data and preprocessing/feature-engineering code.
+Say: "The pipeline prepares booking data for time-series forecasting and creates
+time-dependent features such as lag and rolling values."
+
+1:20–2:10 | Model and metrics
+Show the model code and verified evaluation report.
+Say: "The reported 28-day holdout contains 2,240 observations. The recorded metrics
+are MAPE 11.20%, MAE 36.67 and RMSE 60.62. The MAPE result meets the stated
+12% acceptance target."
+
+2:10–3:20 | Flask API
+Start the application using the actual command documented in the repository.
+Send a real request to /forecast and show the actual JSON response.
+Say: "The trained model is served through a Flask endpoint. This request demonstrates
+a forecast for the selected city and service."
+
+3:20–4:10 | Tests and load test
+Show the actual output from pytest and the saved Week 9 load-test report.
+Say: "The Week 9 integration run recorded five passing tests. The load test used
+50 concurrent workers and completed 200 requests with zero failures."
+Only say this if the results you show still match those figures.
+
+4:10–5:00 | Retraining and monitoring
+Show the weekly retraining scripts and drift-monitoring module.
+Say: "The project includes scripts for scheduled retraining and a drift-monitoring
+component. Deployment scheduling and alert configuration must be verified for
+the target hosting environment."
+
+End by summarizing the pipeline and its current limitations.
+Do not show passwords, tokens, private data or unverified deployment claims.

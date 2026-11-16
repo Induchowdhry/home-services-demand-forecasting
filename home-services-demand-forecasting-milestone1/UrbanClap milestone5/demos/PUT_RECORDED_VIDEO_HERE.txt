@@ -1,0 +1,3 @@
+After recording your actual 5-minute demo, place the MP4 in this folder, for example:
+UrbanClap_Week12_Demo.mp4
+No video is included yet because it must be recorded from your running project.

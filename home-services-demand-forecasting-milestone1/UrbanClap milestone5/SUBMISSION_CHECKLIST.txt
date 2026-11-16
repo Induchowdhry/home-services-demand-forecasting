@@ -1,0 +1,16 @@
+WEEK 12 — BEFORE PORTAL SUBMISSION
+
+[ ] Record the five-minute demo and put the MP4 in demos/.
+[ ] Add the accessible video URL to README_WEEK12_ADDITIONS.md and the main README.
+[ ] Confirm the GitHub Actions workflow is green on the latest main commit.
+[ ] Run pytest -q locally and retain the actual output.
+[ ] Export reports/holdout_predictions.csv with city, service_type, actual, predicted.
+[ ] Run python scripts/segment_error_audit.py.
+[ ] Review all three generated segment CSVs and write a factual audit conclusion.
+[ ] Merge these files into the existing repository; do not overwrite existing project files.
+[ ] Push to GitHub and verify the commit appears on the main branch.
+[ ] Upload the final PDF report/model card and provide the repository/demo links in the portal.
+
+This ZIP contains report PDFs, a CI workflow, an audit script, README additions,
+and a demo recording script. It does NOT contain an actual video or fabricated
+CI/audit results. Those require your own recording and execution.
