@@ -1,0 +1,29 @@
+{
+  "test_type": "HTTP POST /forecast load test",
+  "started_at_utc": "2026-11-16T13:52:04.529443+00:00",
+  "target_concurrency_workers": 50,
+  "total_requests": 200,
+  "successful_requests": 200,
+  "failed_requests": 0,
+  "error_rate_percent": 0.0,
+  "total_elapsed_seconds": 6.646,
+  "throughput_requests_per_second": 30.09,
+  "successful_throughput_requests_per_second": 30.09,
+  "latency_ms": {
+    "mean": 1553.05,
+    "p50": 1648.24,
+    "p95": 1947.23,
+    "p99": 2062.23,
+    "min": 579.48,
+    "max": 2081.12
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "request": {
+    "city": "Bangalore",
+    "service_type": "AC Repair"
+  },
+  "endpoint": "http://127.0.0.1:5000/forecast"
+}

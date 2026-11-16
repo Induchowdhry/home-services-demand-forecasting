@@ -1,0 +1,6 @@
+Status: NOT EXECUTED in the package-preparation runtime.
+Reason: Flask is not installed and outbound package installation is unavailable in this runtime.
+Run on your computer after installing requirements: python scripts/run_week9_validation.py
+This starts Flask, runs pytest, then runs 200 requests with 50 concurrent workers.
+Successful execution writes reports/load_test_results.json and reports/load_test_results.md.
+Do not submit guessed latency/throughput numbers.
